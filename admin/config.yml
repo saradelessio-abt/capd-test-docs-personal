@@ -1,0 +1,19 @@
+backend:
+  name: github
+  branch: main
+  repo: saradelessio-abt/capd-test-docs-personal
+media_folder: "public/images/"
+public_folder: "/images"
+site_url: https://saradelessio-abt.github.io/capd-test-docs-personal
+collections:
+  - name: "posts" 
+    label: "Blog Posts"
+    folder: "posts" 
+    create: true 
+    slug: "{{slug}}"
+    fields: 
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown" }
