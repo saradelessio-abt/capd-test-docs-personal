@@ -4,7 +4,6 @@ backend:
   repo: saradelessio-abt/capd-test-docs-personal
 media_folder: "app/public/images/"
 public_folder: "/images"
-site_url: https://saradelessio-abt.github.io/capd-test-docs-personal
 collections:
   - name: "posts" 
     label: "Blog Posts"
