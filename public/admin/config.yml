@@ -1,7 +1,7 @@
 backend:
   name: github
   branch: main
-  repo: saradelessio-abt/capd-test-docs-personal
+  repo: saradelessio-abt/capd-test-docs-personal/frontend
   auth_scope: public_repo
   auth:
     client_id: Ov23liJhqjbKUWOv25kT
