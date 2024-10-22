@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/capd-test-docs-personal/static/css/main.982890f3.css",
-    "main.js": "/capd-test-docs-personal/static/js/main.8a5043f7.js",
-    "static/js/453.a6a97343.chunk.js": "/capd-test-docs-personal/static/js/453.a6a97343.chunk.js",
-    "index.html": "/capd-test-docs-personal/index.html",
-    "main.982890f3.css.map": "/capd-test-docs-personal/static/css/main.982890f3.css.map",
-    "main.8a5043f7.js.map": "/capd-test-docs-personal/static/js/main.8a5043f7.js.map",
-    "453.a6a97343.chunk.js.map": "/capd-test-docs-personal/static/js/453.a6a97343.chunk.js.map"
+    "main.css": "/static/css/main.982890f3.css",
+    "main.js": "/static/js/main.478660df.js",
+    "static/js/453.a6a97343.chunk.js": "/static/js/453.a6a97343.chunk.js",
+    "index.html": "/index.html",
+    "main.982890f3.css.map": "/static/css/main.982890f3.css.map",
+    "main.478660df.js.map": "/static/js/main.478660df.js.map",
+    "453.a6a97343.chunk.js.map": "/static/js/453.a6a97343.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.982890f3.css",
-    "static/js/main.8a5043f7.js"
+    "static/js/main.478660df.js"
   ]
 }
