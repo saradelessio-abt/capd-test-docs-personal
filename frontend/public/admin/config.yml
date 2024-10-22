@@ -3,10 +3,7 @@ backend:
   branch: main
   repo: saradelessio-abt/capd-test-docs-personal
   auth_scope: public_repo
-  auth:
-    client_id: Ov23liJhqjbKUWOv25kT
-  scope: public_repo
-media_folder: "public/images/"
+media_folder: "frontend/public/images/"
 public_folder: "/images"
 site_url: https://saradelessio-abt.github.io/capd-test-docs-personal
 collections:
