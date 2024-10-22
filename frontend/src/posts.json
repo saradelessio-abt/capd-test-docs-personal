@@ -1,9 +1,1 @@
-[
-  {
-    "id": 946652400,
-    "title": "Test Post",
-    "author": "Jane Jones\r",
-    "date": "undefined undefined, undefined",
-    "content": "Test content"
-  }
-]
+[{"id":1578070200,"title":"This is a Test","author":"Will Jay","date":"January 03, 2020","time":"11:50","thumbnail":"/images/beer.jpg","content":"\n# This is just a test post\n*Let's see what happens*"}]
