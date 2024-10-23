@@ -4,6 +4,8 @@ backend:
 media_folder: "public/images/"
 public_folder: "/images"
 site_url: https://saradelessio-abt.github.io/capd-test-docs-personal
+base_url: https://capdtestdocs.netlify.app
+auth_endpoint: "https://api.netlify.com"
 collections:
   - name: "posts" 
     label: "Blog Posts"
