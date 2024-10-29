@@ -2,7 +2,7 @@ backend:
   name: github
   branch: main
   repo: saradelessio-abt/capd-test-docs-personal
-  auth_scope: public_repo
+  auth_scope: repo
   client_id: "Ov23lisBPHs5jkLE3HSL"
 media_folder: "public/images/"
 public_folder: "/images"
