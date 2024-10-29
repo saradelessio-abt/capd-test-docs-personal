@@ -5,9 +5,15 @@
     <meta name="robots" content="noindex" />
     <title>Hello world</title>
     <script src="config.yml" type="text/yaml"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      CMS.init({ config: YAML.parse(document.querySelector('script[type="text/yaml"]').text) });
+    });
+  </script>
   </head>
   <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <!-- <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>  -->
+     <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
   </body>
 </html>
