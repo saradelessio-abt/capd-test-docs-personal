@@ -2,13 +2,11 @@ backend:
   name: github
   branch: main
   repo: saradelessio-abt/capd-test-docs-personal
-  auth_scope: public_repo
+  auth_scope: repo
   client_id: "Ov23lisBPHs5jkLE3HSL"
 media_folder: "public/images/"
 public_folder: "/images"
 site_url: https://saradelessio-abt.github.io/capd-test-docs-personal
-base_url: https://api.netlify.com
-auth_endpoint: "https://api.netlify.com"
 collections:
   - name: "posts" 
     label: "Blog Posts"
