@@ -1,19 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex" />
-  <title>Decap CMS Admin</title>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  <script src="config.yml" type="text/yaml"></script>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Hello world</title>
+    <script src="config.yml" type="text/yaml"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       CMS.init({ config: YAML.parse(document.querySelector('script[type="text/yaml"]').text) });
     });
   </script>
-</head>
-<body>
-  <h1>Decap CMS Admin Interface</h1>
-</body>
+  </head>
+  <body>
+    <!-- Include the script that builds the page and powers Decap CMS -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </body>
 </html>
