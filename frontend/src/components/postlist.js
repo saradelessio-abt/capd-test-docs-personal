@@ -2,58 +2,71 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Markdown from "react-markdown";
 import { format } from 'date-fns';
-
 import "./components.css";
 
 const PostList = () => {
     const [postList, setPostList] = useState([]);
-    const [excerptList, setExcerptList] = useState([]);
+
     useEffect(() => {
         const fetchPosts = async () => {
             try {
                 const response = await fetch('https://api.github.com/repos/saradelessio-abt/capd-test-docs-personal/contents/posts');
-                const filesData = await response.json();
-    
+                const data = await response.json();
+
+                // Fetch actual content from each post's download_url
                 const posts = await Promise.all(
-                    filesData.map(async (file) => {
-                        const postResponse = await fetch(file.download_url);
-                        const content = await postResponse.text();
-    
-                        // Extract metadata and body
-                        const metadataRegex = /title:\s*(.+)\nauthor:\s*(.+)\ndate:\s*(.+)\nthumbnail:\s*(.+)\n([\s\S]*)/;
-                        const [, title, author, date, thumbnail, body] = content.match(metadataRegex) || [];
-    
-                        return { title, author, date, thumbnail, content: body };
+                    data.map(async (post) => {
+                        const postsResponse = await fetch(post.download_url);
+                        const postContent = await postsResponse.text(); 
+                        return parseMarkdown(postContent); 
                     })
                 );
-    
+
                 setPostList(posts);
-    
-                // Generate excerpts
-                const excerpts = posts.map(post => post.content.split(" ").slice(0, 20).join(" ") + "...");
-                setExcerptList(excerpts);
-    
+
+
             } catch (error) {
                 console.error("Error fetching posts:", error);
             }
         };
-    
+
         fetchPosts();
     }, []);
-    
-    
+
+    // Function to parse Markdown content
+    const parseMarkdown = (markdown) => {
+        const metaRegex = /---\n([\s\S]*?)---/; 
+        const match = markdown.match(metaRegex);
+        let metadata = {};
+        let body = markdown;
+
+        if (match) {
+            const metaString = match[1];
+            body = markdown.replace(metaRegex, "").trim(); 
+
+            // Extract metadata key-value pairs
+            metaString.split("\n").forEach(line => {
+                const [key, ...value] = line.split(":");
+                if (key && value) {
+                    metadata[key.trim()] = value.join(":").trim(); 
+                }
+            });
+        }
+
+        return { ...metadata, body }; 
+    };
 
     return (
         <div>
-        {postList.map((post, index) => (
-            <div key={index}>
-                <img src={post.thumbnail} alt="Post thumbnail" />
-                <h2>{post.title}</h2>
-                <p>Published on {format(new Date(post.date), "MMMM d, yyyy")} by {post.author}</p>
-                <p>{excerptList[index]}</p>
-            </div>
-        ))}
-    </div>
+            {postList.map((post, index) => (
+                <div key={index}>
+                    <img height={100} width={100} src={`${process.env.PUBLIC_URL}/images/beer.jpg`} alt="Beer" />
+                    <h2>{post.title}</h2>
+                    <p>Published on {format(new Date(post.date), "MMMM d, yyyy")} by {post.author}</p>
+                    <Markdown>{post.body}</Markdown>
+                </div>
+            ))}
+        </div>
     );
 };
 
