@@ -60,7 +60,7 @@ const PostList = () => {
         <div>
             {postList.map((post, index) => (
                 <div key={index}>
-                    <img height={100} width={100} src={`${process.env.PUBLIC_URL}/images/beer.jpg`} alt="Beer" />
+                    <img height={100} width={100} src={`${process.env.PUBLIC_URL}${post.thumbnail}`} alt="Thumbnail" />
                     <h2>{post.title}</h2>
                     <p>Published on {format(new Date(post.date), "MMMM d, yyyy")} by {post.author}</p>
                     <Markdown>{post.body}</Markdown>
