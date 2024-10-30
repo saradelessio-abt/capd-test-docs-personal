@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Markdown from "react-markdown";
+import { format } from 'date-fns';
 
 import "./components.css";
 
@@ -10,22 +11,25 @@ const PostList = () => {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                // Fetch metadata for each file in the posts folder
                 const response = await fetch('https://api.github.com/repos/saradelessio-abt/capd-test-docs-personal/contents/posts');
                 const filesData = await response.json();
     
                 const posts = await Promise.all(
                     filesData.map(async (file) => {
-                        // Fetch each file's content from its download_url
                         const postResponse = await fetch(file.download_url);
-                        const content = await postResponse.text(); // Use .text() for Markdown files
-                        return { content };
+                        const content = await postResponse.text();
+    
+                        // Extract metadata and body
+                        const metadataRegex = /title:\s*(.+)\nauthor:\s*(.+)\ndate:\s*(.+)\nthumbnail:\s*(.+)\n([\s\S]*)/;
+                        const [, title, author, date, thumbnail, body] = content.match(metadataRegex) || [];
+    
+                        return { title, author, date, thumbnail, content: body };
                     })
                 );
     
                 setPostList(posts);
     
-                // Generate excerpts for each post
+                // Generate excerpts
                 const excerpts = posts.map(post => post.content.split(" ").slice(0, 20).join(" ") + "...");
                 setExcerptList(excerpts);
     
@@ -37,25 +41,19 @@ const PostList = () => {
         fetchPosts();
     }, []);
     
+    
 
     return (
-        <div className="postlist">
-            <h1 className="title">All Posts</h1>
-            {postList.length > 0 && 
-                postList.map((post, i) => (
-                    <div key={i} className="post-card">
-                         <div className="img-container">
-                            {post.thumbnail && <img className="thumbnail" width={80} src={post.thumbnail} alt=""/> }
-                            <h2 className="post-title"><Link className="links" to={`/post/${post.id}`}>{post.title}</Link></h2>
-                        </div>
-                        <small>Published on {post.date} by {post.author}</small>
-                        <hr/>
-                        <Markdown>{excerptList[i]}</Markdown>
-                        <small><Link className="links" to={`/post/${post.id}`}>Read more</Link></small>
-                    </div>
-                ))
-            }
-        </div>
+        <div>
+        {postList.map((post, index) => (
+            <div key={index}>
+                <img src={post.thumbnail} alt="Post thumbnail" />
+                <h2>{post.title}</h2>
+                <p>Published on {format(new Date(post.date), "MMMM d, yyyy")} by {post.author}</p>
+                <p>{excerptList[index]}</p>
+            </div>
+        ))}
+    </div>
     );
 };
 
