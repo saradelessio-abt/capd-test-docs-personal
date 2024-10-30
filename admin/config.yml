@@ -3,7 +3,7 @@ backend:
   branch: main
   repo: saradelessio-abt/capd-test-docs-personal
   auth_scope: repo
-  base_url: https://git.heroku.com/capd-test-docs-pers-be.git
+  base_url: https://capd-test-docs-pers-be-d81809bd47f3.herokuapp.com/
 media_folder: "public/images/"
 public_folder: "/images"
 site_url: https://saradelessio-abt.github.io/capd-test-docs-personal
