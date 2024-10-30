@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/capd-test-docs-personal/static/css/main.982890f3.css",
-    "main.js": "/capd-test-docs-personal/static/js/main.9bab9ec1.js",
+    "main.js": "/capd-test-docs-personal/static/js/main.b99cdcca.js",
     "static/js/453.a6a97343.chunk.js": "/capd-test-docs-personal/static/js/453.a6a97343.chunk.js",
     "index.html": "/capd-test-docs-personal/index.html",
     "main.982890f3.css.map": "/capd-test-docs-personal/static/css/main.982890f3.css.map",
-    "main.9bab9ec1.js.map": "/capd-test-docs-personal/static/js/main.9bab9ec1.js.map",
+    "main.b99cdcca.js.map": "/capd-test-docs-personal/static/js/main.b99cdcca.js.map",
     "453.a6a97343.chunk.js.map": "/capd-test-docs-personal/static/js/453.a6a97343.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.982890f3.css",
-    "static/js/main.9bab9ec1.js"
+    "static/js/main.b99cdcca.js"
   ]
 }
